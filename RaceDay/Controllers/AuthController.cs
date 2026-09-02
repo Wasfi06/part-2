@@ -19,9 +19,7 @@ namespace RaceDay.Controllers
             _sessionService = sessionService;
         }
 
-        /// <summary>
-        /// Registers a new Organizer or Participant account.
-        /// </summary>
+
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
@@ -46,9 +44,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Logs in an existing user and creates a server-side session.
-        /// </summary>
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
@@ -62,7 +57,6 @@ namespace RaceDay.Controllers
                 });
             }
 
-            // Create a server-side session
             var session = await _sessionService.CreateSessionAsync(result.User!);
 
             return Ok(new
@@ -78,9 +72,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Logs out the current session by revoking it.
-        /// </summary>
         [HttpPost("logout/{sessionId:guid}")]
         public async Task<IActionResult> Logout(Guid sessionId)
         {
