@@ -18,9 +18,6 @@ namespace RaceDay.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Gets all events.
-        /// </summary>
         [HttpGet]
         public async Task<IActionResult> GetEvents()
         {
@@ -46,9 +43,6 @@ namespace RaceDay.Controllers
             return Ok(events);
         }
 
-        /// <summary>
-        /// Gets a single event by ID.
-        /// </summary>
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetEvent(int id)
         {
@@ -92,9 +86,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Creates a new event. Organizer access required.
-        /// </summary>
         [HttpPost]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> CreateEvent(CreateEventRequest request)
@@ -130,9 +121,6 @@ namespace RaceDay.Controllers
                 });
         }
 
-        /// <summary>
-        /// Updates an event. Only the Organizer who created the event can update it.
-        /// </summary>
         [HttpPut("{id:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> UpdateEvent(
@@ -179,9 +167,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Deletes an event. Only the Organizer who created the event can delete it.
-        /// </summary>
         [HttpDelete("{id:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> DeleteEvent(int id)
