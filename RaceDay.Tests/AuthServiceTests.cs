@@ -39,7 +39,6 @@ namespace RaceDay.Tests
             Assert.Equal("newuser@test.com", result.User.Email);
             Assert.Equal("Participant", result.User.Role);
 
-            // Password must not be stored as plain text
             Assert.NotEqual("TestPassword123!", result.User.PasswordHash);
         }
 
