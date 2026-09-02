@@ -15,7 +15,7 @@ namespace RaceDay.Middleware
             HttpContext context,
             SessionService sessionService)
         {
-            // Read the session ID from the request header
+            // session id is needed for authentication
             var sessionHeader = context.Request.Headers["X-Session-Id"]
                 .FirstOrDefault();
 
@@ -25,7 +25,7 @@ namespace RaceDay.Middleware
 
                 if (session != null)
                 {
-                    // Store authenticated user information
+                    // Stores authenticated user information
                     context.Items["UserId"] = session.UserId;
                     context.Items["Role"] = session.RoleSnapshot;
                     context.Items["SessionId"] = session.SessionId;
