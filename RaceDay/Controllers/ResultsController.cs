@@ -18,10 +18,6 @@ namespace RaceDay.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Creates or records a result for a participant enrollment.
-        /// Organizer access required.
-        /// </summary>
         [HttpPost]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> CreateResult(
@@ -97,9 +93,6 @@ namespace RaceDay.Controllers
                 });
         }
 
-        /// <summary>
-        /// Gets a result by ID.
-        /// </summary>
         [HttpGet("{id:int}")]
         [SessionAuthorize]
         public async Task<IActionResult> GetResult(int id)
@@ -161,9 +154,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Gets all results belonging to the logged-in Participant.
-        /// </summary>
         [HttpGet("my")]
         [SessionAuthorize("Participant")]
         public async Task<IActionResult> GetMyResults()
@@ -194,9 +184,6 @@ namespace RaceDay.Controllers
             return Ok(results);
         }
 
-        /// <summary>
-        /// Gets all results for an event owned by the logged-in Organizer.
-        /// </summary>
         [HttpGet("event/{eventId:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> GetEventResults(int eventId)
