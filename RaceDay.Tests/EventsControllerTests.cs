@@ -120,9 +120,6 @@ namespace RaceDay.Tests
                 EventType = "Running"
             };
 
-            // SessionAuthorize is an MVC filter, so this test
-            // directly verifies that the participant cannot be
-            // treated as an organizer by the controller logic.
             var role = controller.HttpContext.Items["Role"] as string;
 
             Assert.Equal("Participant", role);
