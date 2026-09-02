@@ -17,9 +17,6 @@ namespace RaceDay.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Gets the profile of the currently authenticated user.
-        /// </summary>
         [HttpGet("me")]
         [SessionAuthorize]
         public async Task<IActionResult> GetMyProfile()
@@ -51,9 +48,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Updates the profile of the currently authenticated user.
-        /// </summary>
         [HttpPut("me")]
         [SessionAuthorize]
         public async Task<IActionResult> UpdateMyProfile(
