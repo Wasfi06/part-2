@@ -29,11 +29,7 @@ namespace RaceDay.Data
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
             modelBuilder.Entity<Result>().ToTable("Result");
 
-
-            // =========================
             // USER
-            // =========================
-
             modelBuilder.Entity<User>()
                 .HasKey(u => u.UserId);
 
@@ -97,11 +93,7 @@ namespace RaceDay.Data
                     "Role IN ('Organizer','Participant')"
                 );
 
-
-            // =========================
             // SESSION
-            // =========================
-
             modelBuilder.Entity<Session>()
                 .HasKey(s => s.SessionId);
 
@@ -144,11 +136,7 @@ namespace RaceDay.Data
                 .HasForeignKey(s => s.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-
-            // =========================
             // EVENT
-            // =========================
-
             modelBuilder.Entity<Event>()
                 .HasKey(e => e.EventId);
 
@@ -232,11 +220,7 @@ namespace RaceDay.Data
                     "EventType IN ('Running','Walking','Cycling')"
                 );
 
-
-            // =========================
             // CATEGORY
-            // =========================
-
             modelBuilder.Entity<Category>()
                 .HasKey(c => c.CategoryId);
 
@@ -300,11 +284,7 @@ namespace RaceDay.Data
                     "AND MinDistanceKm >= 0 AND MaxDistanceKm >= MinDistanceKm)"
                 );
 
-
-            // =========================
             // ENROLLMENT
-            // =========================
-
             modelBuilder.Entity<Enrollment>()
                 .HasKey(e => e.EnrollmentId);
 
@@ -349,11 +329,7 @@ namespace RaceDay.Data
                 .HasIndex(e => new { e.EventId, e.ParticipantId })
                 .IsUnique();
 
-
-            // =========================
             // RESULT
-            // =========================
-
             modelBuilder.Entity<Result>()
                 .HasKey(r => r.ResultId);
 
