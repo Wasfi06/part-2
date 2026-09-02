@@ -266,11 +266,6 @@ namespace RaceDay.Tests
                 userId: 2,
                 role: "Organizer");
 
-            // The controller action is protected by
-            // [SessionAuthorize("Participant")].
-            // This test verifies that the current session role
-            // is Organizer rather than Participant.
-
             var role = controller.HttpContext.Items["Role"] as string;
 
             Assert.Equal("Organizer", role);
