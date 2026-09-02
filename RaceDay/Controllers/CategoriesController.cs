@@ -18,9 +18,6 @@ namespace RaceDay.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Gets all categories for an event.
-        /// </summary>
         [HttpGet("event/{eventId:int}")]
         public async Task<IActionResult> GetCategories(int eventId)
         {
@@ -53,9 +50,6 @@ namespace RaceDay.Controllers
             return Ok(categories);
         }
 
-        /// <summary>
-        /// Gets a category by ID.
-        /// </summary>
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -85,9 +79,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Creates a category for an event. Organizer access required.
-        /// </summary>
         [HttpPost("event/{eventId:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> CreateCategory(
@@ -190,9 +181,6 @@ namespace RaceDay.Controllers
                 });
         }
 
-        /// <summary>
-        /// Updates a category. Organizer access required.
-        /// </summary>
         [HttpPut("{id:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> UpdateCategory(
@@ -287,9 +275,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Deletes a category. Organizer access required.
-        /// </summary>
         [HttpDelete("{id:int}")]
         [SessionAuthorize("Organizer")]
         public async Task<IActionResult> DeleteCategory(int id)
