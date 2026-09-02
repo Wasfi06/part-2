@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RaceDay.Data;
 
 #nullable disable
-//sql data
+
 namespace RaceDay.Migrations
 {
     [DbContext(typeof(RaceDayDbContext))]
@@ -20,7 +20,7 @@ namespace RaceDay.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "10.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
+//sql data
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("RaceDay.Models.Category", b =>
