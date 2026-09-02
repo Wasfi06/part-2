@@ -20,7 +20,6 @@ namespace RaceDay.Middleware
             var userId = context.HttpContext.Items["UserId"];
             var role = context.HttpContext.Items["Role"] as string;
 
-            // No valid session
             if (userId == null || string.IsNullOrEmpty(role))
             {
                 context.Result = new UnauthorizedObjectResult(new
@@ -31,7 +30,6 @@ namespace RaceDay.Middleware
                 return;
             }
 
-            // Check required role
             if (!string.IsNullOrEmpty(_requiredRole) &&
                 !string.Equals(role, _requiredRole, StringComparison.OrdinalIgnoreCase))
             {
