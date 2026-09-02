@@ -7,9 +7,7 @@ namespace RaceDay.Controllers
     [Route("api/test-auth")]
     public class TestAuthController : ControllerBase
     {
-        /// <summary>
-        /// Tests whether the current user has a valid session.
-        /// </summary>
+
         [HttpGet("authenticated")]
         [SessionAuthorize]
         public IActionResult Authenticated()
@@ -22,9 +20,6 @@ namespace RaceDay.Controllers
             });
         }
 
-        /// <summary>
-        /// Tests Organizer-only access.
-        /// </summary>
         [HttpGet("organizer")]
         [SessionAuthorize("Organizer")]
         public IActionResult OrganizerOnly()
@@ -36,10 +31,7 @@ namespace RaceDay.Controllers
                 role = HttpContext.Items["Role"]
             });
         }
-
-        /// <summary>
-        /// Tests Participant-only access.
-        /// </summary>
+>
         [HttpGet("participant")]
         [SessionAuthorize("Participant")]
         public IActionResult ParticipantOnly()
