@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RaceDay.Data;
 
 #nullable disable
-
+//sql data
 namespace RaceDay.Migrations
 {
     [DbContext(typeof(RaceDayDbContext))]
